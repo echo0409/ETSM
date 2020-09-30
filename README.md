@@ -3,11 +3,11 @@
 
 This is the source code of ETSM model. Some parts of it can't be used directly. Due to the long time, it is difficult to supplement. Therefore, I explain the programming ideas for reference. The following explanations take the prediction of AKI 24 hours in advance as an example.
 
-##Select the patients whose icu stay time is more than 24h
+## Select the patients whose icu stay time is more than 24h
 
-##Feature extraction
+## Feature extraction
 
-###Vital signs and laboratory results (marked as "status")
+### Vital signs and laboratory results (marked as "status")
 
 - There may be a large number of missing values in the patient's status value. Select the average value of the queue to supplement. (feature_extract/fill_status.py)
 
@@ -16,7 +16,7 @@ This is the source code of ETSM model. Some parts of it can't be used directly. 
 - The selected two parts joint a one-dimensional feature vector. (feature_extract/feature.py)
 
 
-###medication data (marked as "treatment")
+### medication data (marked as "treatment")
 
 - Change the medication data to a Boolean value. (featureextract/numlize.py)
 
@@ -30,12 +30,12 @@ This is the source code of ETSM model. Some parts of it can't be used directly. 
 
 
 
-###feature combination
+### feature combination
 
 The input is obtained by connecting the features of state and medication combination. (featureextract/X.py)
 
 
 
-##Model training
+## Model training
 
 Using xgboost model for training. (model/xgboost.py)
